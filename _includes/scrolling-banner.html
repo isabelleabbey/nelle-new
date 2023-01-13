@@ -1,0 +1,84 @@
+<section>
+    <div class="grid grid-cols-1 scroll-container">
+        <div class="scroller">
+           <ul class="scroll-content">
+                {% for item in site.data.categories %}
+                <li>{{item.title}}</li>
+                {% endfor %}
+                {% for item in site.data.categories %}
+                <li>{{item.title}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Scroll on hover - now booking */
+
+:root {
+--scroller-width: 100vw;
+--scroller-height: 100px;
+--scroll-item-count: 6;
+--items-displayed: 5;
+--scroll-item-width: 350px;
+--scroll-duration: calc(var(--scroll-item-count) * 5s);
+}
+
+.scroll-container {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-align: center;
+    background-color: #fff;
+    color: black;
+    width: 100%;
+    height: 7vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+/*  .scroll-container > span {opacity: 0;} */
+  
+  .scroller {
+    width: var(--scroller-width);
+    height: var(--scroller-height);
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    right: 0;
+    width: 100%;
+    transform: translateX(-50vw); }
+  
+  .scroll-content {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    animation: scrolling var(--scroll-duration) linear infinite;
+    animation-play-state: paused;
+    opacity: 0;
+}
+
+.scroller .scroll-content{
+    animation-play-state: running;
+    opacity: 1;
+} 
+
+  @keyframes scrolling {
+    0% {
+      transform: translateX(0); }
+    100% {
+      transform: translateX(calc(-1 * var(--scroll-item-width) * var(--scroll-item-count))); } }
+  
+  .scroll-content li {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+    flex-shrink: 0;
+    width: var(--scroll-item-width);
+    white-space: nowrap; }
+</style>
