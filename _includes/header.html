@@ -1,0 +1,74 @@
+<header class="m-auto border-black grid grid-cols-3">
+
+  <div>
+
+    <nav class=" flex justify-center items-center flex-row">
+      
+      <!-- <a href="#" class="nav-item"> INSTAGRAM  &nbsp;&nbsp; |  &nbsp; &nbsp;&nbsp;</a>
+      <a href="#" class="nav-item"> CONTACT </a> -->
+
+    </nav>
+  </div>
+
+  <div class="text-center flex justify-center items-center">
+      <a href="/"><img class="w-1/2 border border-black object-contain object-center m-auto" src="/images/company_logo.png"></a>
+  </div>
+
+  <div class="item-right justify-end p-5">
+    <nav class="flex item-right justify-end">
+      <a href="#" class="nav-item"> subscribe  &nbsp;&nbsp; |  &nbsp; &nbsp;&nbsp;</a>
+    <a class="p-x"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+    </svg>
+    </a>
+  </nav>
+  </div>
+
+  <div class="text-center col-span-full grid border border-black min-h-[5vh]">
+      <nav class="flex-row flex justify-around items-center col-span-full border border-black uppercase font-light tracking-wide">
+   
+
+
+            <!-- This is if the client wants new categories to output into the nav menu automatically. Comment out in config too -->
+        {% for item in site.data.navigation.header %}
+        <a href="/categories/{{item.title}}">{{item.title}}</a>
+        {% endfor %}
+
+
+          <a href="#"> Nav Link </a>
+          <a href="#"> Nav Link </a>
+          <a href="#"> Nav Link </a>
+          <a href="#"> Nav Link </a>
+          <a href="#"> Nav Link </a>
+          <a href="#"> Nav Link </a>
+          <a href="#"> Nav Link </a>
+          <a href="#"> Nav Link </a>
+      
+        
+       
+      </nav>
+  </div>
+
+
+
+</header>
+
+<!-- <header class="text-center flex justify-center ">
+  <a href="/">
+   <img src="/images/icons/logo.svg">
+  </a>
+  <nav class="flex flex-flow flex-nonwrap overflow-x-scroll gap-1 md:justify-center py-6 border-y border-zinc-900">
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+    <a href="#" class="inline-block  p-3"> Link </a>
+  </nav>
+  </header> -->

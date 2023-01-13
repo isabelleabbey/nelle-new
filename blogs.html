@@ -1,0 +1,38 @@
+---
+layout: default
+tags:
+tags: 
+  - latest
+---
+
+<section class="grid  grid-cols-3 md:grid-cols-6 gap-2 min-h-screen">
+
+  {% for post in site.posts limit:10 %}
+
+
+  <a href="{{ post.url }}" class="relative p-10 bg-blue-200 bg-cover bg-center hover:bg-rose-200 
+  {% cycle 'col-span-3 row-span-2', 'col-span-1', 'col-span-2', 'col-span-3 row-span-2', 'row-span-2', 'col-span-1', 'col-span-1', 'col-span-2', 'col-span-2', 'col-span-1' %}" style="background-image:url('{{ post.featured_image }}')">
+    <div class="absolute flex items-center justify-left inset-0 hover:bg-rose-200 p-5 text-transparent hover:text-white justify-content-center flex transition duration-500">
+      <h2 class=""> {{post.title}}</h2>
+    </div>
+  
+  </a>
+
+
+  {% endfor %}
+</section>
+
+
+
+
+<!-- how to add posts with tags! specifiying on each page which tag youd like to show-->
+
+{% assign pageTag = page.tags[0] %}
+
+{{ site.tags }}
+
+{% for post in site.tags[pageTag] %}
+
+<h2>{{post.title}}</h2>
+
+{% endfor %}

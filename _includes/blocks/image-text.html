@@ -1,0 +1,27 @@
+<section class="grid gap-4 lg:grid-cols-{{block.column_count}}">
+
+  {% for item in block.columns %}
+
+      {% if item._type =='image' %}
+      <div class="p-5 min-h-[50vh] lg:min-h-full flex md:{{item.column_width}} bg-center bg-cover" style="background-image:url('{{ item.image }}')">
+        <!-- <img class="object-cover object-center" src="{{item.image}}"> -->
+      </div>
+
+      {% elsif item._type =='text' %}
+
+      <div class="p-5 sticky md:col-span-{{item.column_width}}">
+          {{item.text_html}}
+      </div>
+
+      {% elsif item._type =='video' %}
+
+      <div class="p-5 min-h-full md:col-span-{{item.column_width}}">
+          VIDEO 
+      </div>
+
+      {% endif %}
+
+  {% endfor %}
+
+  
+  </section>

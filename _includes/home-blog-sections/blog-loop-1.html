@@ -1,0 +1,41 @@
+
+  {% assign targetCat = page.categories[forloop.index0] %}
+  <!-- <h2>{{targetCat}}</h2> -->
+  {% assign count = 0 %}
+<section class="grid md:grid-cols-3 gap-2 p-5">
+  {% for post in site.categories[targetCat]  where_exp: 'post', 'post.url' != 'page.url' %}
+    {% if count < 3 %}
+    {% if seenPost contains post.url %}
+        <!-- skip it -->
+      {% else %}
+
+
+        <div class=" p-2 text-center">
+          <a href="{{post.url}}">
+            
+              <img class="border-black border object-fit object-cover w-full h-[80vh]" src="{{post.featured_image}}">
+              <div class="border-black border bg-beige">
+              <h3 class="uppercase tracking-wide font-light">   {{post.title}} </h3>
+              </div>
+          </a>
+        </div>
+
+
+          {% assign seenPost = seenPost | append: post.url %}
+          {% assign count = count | plus:1 %}
+      {% endif %}
+    {% endif %}
+    
+  {% endfor %}
+</section>
+
+<section class="p-10  editable">
+  <div class=" flex">
+
+    <h2 class="text-3xl"> Explore  latest in {{targetCat}}&nbsp;&nbsp; </h2>
+ 
+    <img class="object-contain h-10" src="images/icons/company-keywords-icon.svg">
+
+  </div>
+  
+</section>

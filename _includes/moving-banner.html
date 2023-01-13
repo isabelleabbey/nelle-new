@@ -1,0 +1,62 @@
+
+<div class="tickerBanner">
+    <div class="banner-first-text">
+        <span>{{page.banner_messege}}</span>
+    </div>
+    <div class="">
+        <span>{{page.banner_messege}}</span>
+    </div>
+    <div class="">
+        <span>{{page.banner_messege}}</span>
+    </div>
+    <div class="">
+        <span>{{page.banner_messege}}</span>
+    </div>
+    <div class="">
+        <span>{{page.banner_messege}}</span>
+    </div>
+    <div class="">
+        <span>{{page.banner_messege}}</span>
+    </div>
+    <div class="">
+        <span>{{page.banner_messege}}</span>
+    </div>
+    <div class="">
+        <span>{{page.banner_messege}}</span>
+    </div>
+
+</div>
+
+
+
+<style>
+.tickerBanner{
+overflow-X: hidden;
+display: flex;
+text-align: center;
+}
+
+.tickerBanner > * {
+padding-top: 1vw;
+padding-bottom: 1vw;
+}
+.tickerBanner .banner-first-text{
+  position: absolute;
+  left: -{{page.banner_width}};
+}
+
+.tickerBanner span{
+    display: inline-block;
+    padding: 0vw 5vw;
+    position: relative;
+    animation: ticker 2s infinite linear;
+    width: {{page.banner_width}};
+}
+
+
+@keyframes ticker {
+    from {left:0}
+    to   {left:100%}
+}
+</style>
+Footer

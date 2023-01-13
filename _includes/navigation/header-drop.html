@@ -1,0 +1,311 @@
+
+<style>
+
+  /* burger */
+  
+  /* this is where you style the button if you want to add more space between the spans than add padding to this div but make sure you also add it to the top and bottom active classes on there top/bottom or else your cross wont line up*/
+  
+  .menu-p{
+    position:absolute;
+    bottom:-2rem;
+  }
+  
+  /* .menu-button {
+  position: relative;
+    z-index: 1002000;
+  } */
+  
+  /* positioning of button */
+  
+  @media (max-width: 768px) {
+      /* .burger-button {
+          top: 25px;
+          left: 12px;
+      } */
+  
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+      .burger-button.active span {
+          border-color: black;
+          background-color: black;
+      }
+  }
+  
+  
+  /* flip the icon here */
+  /* .burger-button.active {
+    transform: rotateY(180deg);
+    
+  } */
+  
+  .burger-menu {
+     background-color: #f2f2ef;
+      display: flex;
+      position: absolute;
+      top: -100vh;
+      /* height: 60vh; */
+      width: 100vw;
+      left: 0;
+      opacity: 0;
+      transition: all;
+      transition-duration: 2s;
+      pointer-events: none;
+      padding: 3rem 0rem;
+      z-index: 100;
+  }
+  
+  
+  
+  
+  /* add underline */
+  
+  /* .burger-button.active .z-index-fun {
+    text-decoration: underline;
+  } */
+  
+  
+  /* add slow underline */
+  .burger-button::after{
+    content: " ";
+    width: 0%;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    border-bottom: 2px solid black;
+  transition: 2s;
+  }
+  
+  .burger-button.active::after{
+    content: " ";
+    width: 100%;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    border-bottom: 2px solid black;
+  
+  }
+  
+  .z-index-fun {
+    position: relative;
+    z-index: 10000;
+  }
+  
+  @keyframes menu-text {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+  
+  .burger-menu a {
+    text-decoration: none;
+    padding: 2rem 2rem;
+    white-space:nowrap;
+    opacity: 0;
+    transition: opacity 0.5s linear 1s, color 0.1s;
+  }
+  
+  .burger-menu.active   { top: 0px;             }
+  .burger-menu.active a {
+    transition: opacity 1s linear 0.5s, color 0.1s;
+    opacity: 1;
+  }
+  
+  .burger-img {
+    object-fit: cover;
+    object-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top:0;
+    right:0;
+    left:40%;
+    bottom:0;
+    z-index: -1;
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.5s;
+    transition-delay: 0;
+  }
+  
+  .burger-menu.active .burger-img {
+      transition: all 2s;
+      transition-delay: 1s;
+      opacity: 1;
+  }
+  
+  .burger-menu.active{
+      opacity: 1;
+      pointer-events: auto;
+  }
+  
+  /* media queries */
+  @media (max-width: 768px) {
+  
+  .burger-menu-links {
+    margin-top: 10px;
+  }
+  
+  .burger-menu {
+    width: 100vw;
+    left: 0;
+    right: 0;
+    transition: opacity;
+    transition-duration: 1s;
+    pointer-events: none;
+  }
+  
+  .burger-menu.active {
+      left: 0;
+      right: 0;
+      opacity: 1;
+      pointer-events: auto;
+  }
+  
+  }
+  
+  </style>
+  
+  
+  
+  
+  
+  
+
+<header>
+<section class="grid grid-cols-3 border-b border-black bg-white z-index-fun">
+<div>
+
+  <nav class=" flex justify-center items-center flex-row">
+    
+    <!-- <a href="#" class="nav-item"> INSTAGRAM  &nbsp;&nbsp; |  &nbsp; &nbsp;&nbsp;</a>
+    <a href="#" class="nav-item"> CONTACT </a> -->
+
+  </nav>
+</div>
+
+<div class="text-center flex justify-center items-center">
+    <a href="/"><img class="w-1/2 object-contain object-center m-auto" src="/images/company_logo.png"></a>
+</div>
+
+<div class="item-right justify-end p-5">
+  <nav class="flex item-right justify-end">
+    <a href="#" class="nav-item"> subscribe  &nbsp;&nbsp; |  &nbsp; &nbsp;&nbsp;</a>
+  <a href="/search.html" class="p-x"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 "> <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+  </svg>
+  </a>
+</nav>
+</div>
+</section>
+
+<section class="m-auto  border-b border-black relative ">
+
+<div class="bg-white z-index-fun hidden md:grid md:grid-cols-1">
+
+<!-- col one -->
+  <div class="text-center  grid min-h-[5vh]">
+    <nav class="nav-items ">
+
+      {% for item in site.data.navigation.header %}
+      <span href="#" data-target-menu="menu-left{{ forloop.index }}" class="burger-button relative grid"> 
+    
+         <a> {{item.nav_title}} </a>
+
+       
+      </span>
+
+      {% endfor %}
+
+    </nav>
+
+  </div>
+
+</div>
+  
+
+ <!-- submenu dropdown pulling in data -->
+ {% for item in site.data.navigation.header %}
+ <div data-menu-identifier="menu-left{{ forloop.index }}" class="burger-menu burger-menu bg-cream  grid grid-cols-2">
+    <div class=" flex flex-col items-start justify-end col-span-1">
+      {% for link in item.sublink %}
+        <a href="{{link.url}}">{{link.title}}</a>
+      {% endfor %}
+      </div>
+
+
+  <!-- IF BLOG POSTS -->
+
+    <div class=" grid grid-cols-4">
+      {% assign targetCat = item.nav_title %}
+      {% for  item in site.categories[targetCat] limit:4 %}
+      <div class="p-2 flex flex-col">
+        <img class="flex-grow object-cover" src="{{item.featured_image}}">
+        <h3> {{item.title}} </h3>
+      </div>
+      {% endfor %}
+    </div>
+
+ 
+ </div>
+ {% endfor %}
+
+<!-- un comment below if you want the right nav -->
+
+ <!-- {% for item in site.data.navigation-with-submenu.header offset:3 %}
+ <div data-menu-identifier="menu-right{{ forloop.index }}" class="burger-menu burger-menu bg-cream flex flex-col items-start justify-end">
+
+   {% for link in item.sublink %}
+     <a href="{{link.url}}">{{link.title}}</a>
+   {% endfor %}
+ </div>
+ {% endfor %} -->
+
+</section>
+
+</header>
+
+
+<script>
+  const burgerButtons = document.querySelectorAll('.burger-button');
+  const burgerMenus = document.querySelectorAll('.burger-menu');
+  const header = document.querySelector('header');
+
+  function toggleBurger() {
+    let targetMenu = this.dataset.targetMenu
+    burgerButtons.forEach(burgerButton => {
+      burgerButton.classList.remove('active');
+    });
+    burgerMenus.forEach(burgerMenu => {
+      if(targetMenu == burgerMenu.dataset.menuIdentifier){
+          burgerMenu.classList.add('active');
+      }
+      else {
+      burgerMenu.classList.remove('active');
+      }
+    });
+    this.classList.add('active');
+
+  };
+
+  function hideMenu() {
+    burgerButtons.forEach(burgerButton => {
+      burgerButton.classList.remove('active');
+    });
+    burgerMenus.forEach(burgerMenu => {
+      burgerMenu.classList.remove('active');
+    });
+  };
+
+  burgerButtons.forEach(burgerButton => {
+    burgerButton.addEventListener('click', toggleBurger);
+    // burgerButton.addEventListener('mouseenter', toggleBurger);
+ 
+  });
+
+
+  header.addEventListener('mouseleave', hideMenu);
+
+</script>
+
+        

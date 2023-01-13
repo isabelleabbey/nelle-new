@@ -3,5 +3,99 @@
 @tailwind utilities;
  
 .button {
-    @apply inline-block p-6 bg-blue-600 text-white hover:bg-blue-800 transition;
+    @apply inline-block p-6 bg-rose-100 text-white hover:bg-blue-800 transition;
 }
+
+
+.nav-items {
+  @apply flex-row flex justify-around items-center uppercase font-light tracking-wide;
+}
+
+
+
+.landscape {
+    padding-bottom: 125%;
+}
+
+.portrait {
+    padding-bottom: 66%;
+}
+
+.square {
+    padding-bottom: 100%;
+}
+
+
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Thin.woff2') format('woff2'),
+       url('/fonts/Canela-Thin.woff') format('woff'),
+      url('/fonts/Canela-Thin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  }
+  
+  @font-face {
+  font-family: 'Canela Italic';
+  src: url('/fonts/Canela-ThinItalic.woff2') format('woff2'),
+       url('/fonts/Canela-ThinItalic.woff') format('woff'),
+      url('/fonts/Canela-ThinItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  }
+
+
+  h1, h2, h3, h4 {
+    font-family: 'Canela', serif;
+  }
+
+  .italics {
+    font-family: 'Canela Italic', serif;
+    font-style: italic;
+  }
+  
+
+  p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+  }
+
+* {
+  border: 2px solid black !important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.bg-beige { background-color: #EDEBE8;}
+
+.bg-dark {background-color: black;}
+.bg-light {background-color: white;}
+
+video {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+#myVideo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 100;
+}
+
+.vw-100 { width: 100%; }
+.vh-100 { height: 80%; }
+
+
+input {
+  outline: none;
+}
+
+

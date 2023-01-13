@@ -1,0 +1,64 @@
+header:
+  - nav_title: wellness
+    sublink:
+      - title: Sublink 1
+        url: bob
+      - title: Sublink 1
+        url: bob
+      - title: Sublink 1
+        url: bob
+      - title: Sublink 1
+        url: bob
+  - nav_title: travel
+    sublink:
+      - title: Sublink 1
+        url: bob
+      - title: Sublink 1
+        url: bob
+      - title: Sublink 1
+        url: bob
+      - title: Sublink 1
+        url: bob
+  - nav_title: beauty
+    sublink:
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url:  
+  - nav_title: Fashion
+    sublink:
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url:  
+  - nav_title: Lifestyle
+    sublink:
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url: 
+      - title: Sublink 1
+        url: 
+footer:
+  - nav_title: Link
+    nav_url:
+  - nav_title: Link
+    nav_url:
+  - nav_title: Link
+    nav_url:
+  - nav_title: Link
+    nav_url:
+  - nav_title: Link
+    nav_url:
+  - nav_title: Link
+    nav_url:

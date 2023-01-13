@@ -1,0 +1,37 @@
+
+  <section class="p-10"></section>
+  
+  {% assign targetCat = page.categories[forloop.index0] %}
+  <!-- <h2>{{targetCat}}</h2> -->
+  {% assign count = 0 %}
+  <section class="md:flex" style="width: 100vw;">
+
+    <div class="p-10 justify-start flex items-center relative">
+      <div class="border border-black md:-rotate-90 text-5xl w-[20rem] md:mb-[-15rem]">
+      <h2 class="w-[30rem]"> Latest in {{targetCat}} </h2>
+      </div>
+    </div>
+
+  {% for post in site.categories[targetCat] | where_exp: 'post', 'post.url' != 'page.url' %}
+    {% if count < 2 %}
+    {% if seenPost contains post.url %}
+        <!-- skip it -->
+      {% else %}
+
+       
+          <a href="{{post.url}}" class="p-5 min-h-[90vh] m-2 border grow border-black flex bg-center bg-cover justify-end items-end" style="background-image:url('{{ post.featured_image }}')">
+
+          <h3 class="text-white uppercase mb-2 text-2xl">{{ post.title }}</h3>
+          </a>
+        
+
+          {% assign seenPost = seenPost | append: post.url %}
+          {% assign count = count | plus:1 %}
+      {% endif %}
+    {% endif %}
+    
+  {% endfor %}
+</section>
+
+
+<section class="p-10"></section>

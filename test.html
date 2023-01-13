@@ -1,0 +1,150 @@
+---
+layout: default
+title: Homepage
+seo:
+  title:
+  meta-description:
+  meta-keywords:
+  featured-image_path:
+  hide-from-google: false
+text_html: Lorem ipsum dolor sit ameaaat consectetur adipisicing elit. Sequi mollitia quia explicabo, et animi ipsam vitae molestias ratione natus enim eveniet consequuntur, debitis qui aperiam aut minima aliquam saepe eius.
+banner_image: /images/image_two.jpg
+banner_title: Im a title 
+video:
+  video-type: youtube
+  youtube_id: 6wqFjoNqg5o
+  vimeo_id: 
+  embedded_poster: /images/image.jpg
+  embedded: 
+  - video_path: /images/team-intro.mp4
+    file_type: mp4
+gallery_column_count: 4
+gallery:
+  - column-width: 1
+    aspect-ratio: aspect-portrait
+    background_image: /images/image.jpg
+  - column-width: 1
+    aspect-ratio: aspect-portrait
+    background_image: /images/image.jpg
+  - column-width: 1
+    aspect-ratio: aspect-portrait
+    background_image: /images/image.jpg
+  - column-width: 1
+    aspect-ratio: aspect-portrait
+    background_image: /images/image.jpg
+  - column-width: 2
+    aspect-ratio: aspect-landscape
+    background_image: /images/image.jpg
+  - column-width: 2
+    aspect-ratio: aspect-landscape
+    background_image: /images/image.jpg 
+cta_title: Im a CTA
+cta_text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum tenetur quam natus vero nesciunt pariatur commodi perferendis? Dolor quisquam, magni quos eaque maxime quae molestias quibusdam, atque libero porro similique.
+cta_url:
+cta_button-text:
+banner_messege: wellness travel fitness lifestyle woo
+---
+
+<!-- text content -->
+
+<section class="p-5">
+    {{ page.text_html }}
+</section>
+
+
+<!-- image banner block -->
+
+<section class="bg-center bg-cover flex items-center justify-center min-h-screen" style="background-image:url('{{ page.banner_image }}')">
+  <h2> {{ page.banner_title }}</h2>
+</section>
+
+
+
+<!-- video options  -->
+<!-- <section class="p-5">
+
+  {{page.video.video-type}}
+
+-->
+
+  {% if page.video.video-type == 'youtube' %}
+
+<div class="plyr__video-embed relative" id="player">
+  <iframe
+    src="https://www.youtube.com/embed/{{ page.video.youtube_id }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+    allowfullscreen
+    allowtransparency
+    allow="autoplay"
+  ></iframe>
+</div>
+
+{% elsif page.video.video-type == 'vimeo' %}
+
+<div class="plyr__video-embed relative" id="player">
+  <iframe
+    src="https://player.vimeo.com/video/{{ page.video.vimeo_id }}?muted=1&autoplay=1loop=true&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+    allowfullscreen
+    allowtransparency
+    allow="autoplay"
+  ></iframe>
+</div>
+
+
+{% elsif page.video.video-type == 'embedded' %}
+
+<video id="player" playsinline controls autoplay muted autobuffer="true" preload="auto" loop data-poster="{{ page.video.embedded_poster }}">
+  
+  {% for item in page.video.embedded %}
+  <source src="{{ item.video_path }}" type="video/{{ item.file_type }}" />
+
+  {% endfor %}
+  <!-- Captions are optional -->
+  <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default />
+</video>
+
+{% endif %}
+
+</section> -->
+
+
+<!-- gallerh -->
+<div class="gallery grid md:grid-cols-{{page.gallery_column_count}} gap-2">
+		{% for item in page.gallery %}
+
+		    <div class="col-span-{{item.column-width}}">
+		      <div class="bg-center bg-cover {{item.aspect-ratio}}" style="background-image:url('{{item.background_image}}')"></div>
+		    </div>
+
+		{% endfor %}
+</div>
+
+
+
+<!-- slider  -->
+
+
+
+
+<!-- CTA -->
+
+
+<section class="p-5 flex justify-center items-center editable">
+
+    <h4 class="p-5 border-r"> Lorem ipsum dolor sit amet consectetur adipisicing elit.  </h4>
+   
+    <a href="#" class="p-5"> CTA button </a>
+
+</section>
+
+
+<!-- newsletter signup -->
+
+
+
+
+
+
+
+
+
+{% include moving-banner.html %}

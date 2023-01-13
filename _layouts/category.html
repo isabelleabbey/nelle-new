@@ -1,0 +1,100 @@
+---
+layout: default
+---
+
+
+
+
+{% assign seenPost = "[0]" %}
+
+
+
+
+
+{% include banner.html %}
+
+{% assign targetCat = page.categories[0] %}
+  <!-- <h2>{{targetCat}}</h2> -->
+  {% assign count = 0 %}
+
+
+<!-- beginning of page grid -->
+<section class="grid md:grid-cols-3">
+
+  <div class="md:col-span-2 p-5 grid gap-4 grid-cols-2 border border-black md:px-10">
+  {% for post in site.categories[targetCat] %}
+  {% if count < 2 %}
+  {% if seenPost contains post.url %}
+      <!-- skip it -->
+    {% else %}
+
+  <!-- image column -->
+    <div class="col-span-1 mt-6 mb-6">
+      {% if post.featured_video == true %}
+      <div class=" border-black border relative min-h-[40vh] ">
+      
+        <video id="myVideo" class="bg-video bg_cover vw-100 vh-100" autoplay muted playsinline autobuffer="true" loop poster="{{post.featured_image}}">
+        <source src="{{post.featured_video_path}}" type="video/mp4" />
+        Your browser does not support the video tag.
+        </video>
+      
+      </div>
+      {% else %}
+    
+      <div class="border border-black bg-cover bg-center min-h-[50vh]" style="background-image:url('{{post.featured_image}}')">
+
+      </div>
+      {% endif %}
+
+    </div>
+
+    <!-- text section -->
+    <div class="flex justify-start text-left items-center p-10">
+      <a href="{{post.url}}">
+        
+        <h3 class="uppercase tracking-wide font-light">   {{post.categories[0]}} </h3>
+          
+          <h3 class="text-5xl mt-2 mb-4">   {{post.title}} </h3>
+          <p> {{ post.blurb }} </p>
+        
+      </a>
+    </div>
+
+    {% assign seenPost = seenPost | append: post.url %}
+    {% assign count = count | plus:1 %}
+{% endif %}
+{% endif %}
+
+{% endfor %}
+
+</div>
+<!-- column 2 -->
+<div class=" border border-black">
+  {% for post in site.categories[targetCat] %}
+  {% if count < 6 %}
+  {% if seenPost contains post.url %}
+      <!-- skip it -->
+    {% else %}
+  <div class="flex p:5 md:p-10 justify-start text-left items-center p-10 border-b border-black">
+    <a href="{{post.url}}">
+      
+      <h3 class="uppercase tracking-wide font-light">   {{post.categories[0]}} </h3>
+       
+        <h3 class="text-5xl mt-2 mb-4">   {{post.title}} </h3>
+        <p> {{ post.blurb }} </p>
+        
+        
+    </a>
+  </div>
+  {% assign seenPost = seenPost | append: post.url %}
+  {% assign count = count | plus:1 %}
+{% endif %}
+{% endif %}
+
+{% endfor %}
+</div>
+
+<!-- end of section -->
+</section>
+
+{{seenPost}}

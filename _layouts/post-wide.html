@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+
+
+{% include social-sharing.html %}
+
+<!-- include blocks -->
+{% for block in page.page_blocks %}
+     {% include /blocks/{{block._id}}.html %}
+{% endfor %}
+
+
+{% for category in page.categories %}
+{{ forloop.index }}
+{% endfor %}
+
+
+
+
+<!-- assign variable pageCategory to the first category on the post (page) -->
+{% assign pageCategory = page.categories[0] %}
+<!-- assign relevant to the first category on the page and if the post url matches the page url do not assign relevant-->
+{% assign relevant = site.categories[pageCategory] | where_exp: "post", "post.url != page.url" %}
+
+<!-- output those with the variable relevant -->
+
+<section class="grid md:grid-cols-3 gap-2 p-5">
+  <h2 class="col-span-full"> Read more in - {{pageCategory}}</h2>
+{% for post in relevant limit:3 %}
+
+
+<a href="{{post.url}}">
+    <div class="p2 border border-black">
+    <img class="w-full h-64 object-cover" src="{{post.image}}">
+    <h2 class="mt-2">{{ post.title }}</h2>
+    <h4>{{ post.author }}</h4>
+    </div>
+  </a>
+
+{% endfor %}
+
+
+

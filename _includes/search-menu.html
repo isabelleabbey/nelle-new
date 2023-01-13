@@ -1,0 +1,34 @@
+<style>
+
+  #search-input {
+    width: 20vw;
+    padding-right: 3rem;
+  }
+  </style>
+  
+  
+  <input class="p-3 m-5 border border-black" type="text" id="search-input" placeholder="search &nbsp;&nbsp;➝">
+    
+    <div class="col-span-full absolute top-0 right-0 left-0 ">
+    <ul id="results-container" class="bg-white"></ul>
+    </div>
+    
+    
+    <!-- CDN for jekyll search -->
+    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+    
+    <!-- script for jekyll search -->
+    <script>
+      var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="p-10 border-black border-b"><a href="{{ site.url }}{url}"><div class="justify-between flex"><h2 class="text-lg">{title}</h2><h4 class="text-xs uppercase tracking-widest">{categories}</h4></div></a><p class="text-sm mt-2 mb-2"> {blurb} </p></div>'
+      })
+      </script>
+    
+    
+    
+    
+
+    

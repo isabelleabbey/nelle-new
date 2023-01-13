@@ -1,0 +1,30 @@
+<nav class="flex">
+
+{% if site.data.socials.instagram_link %}
+<a class="block " href="{{site.data.socials.facebook_link}}">
+  <i class="text-xl text-white fa-brands fa-instagram"></i>
+</a>
+
+
+{% endif %}
+{% if site.data.socials.facebook_link %}
+<a class="block " href="{{site.data.socials.facebook_link}}">
+  <i class="text-xl text-white fab fa-facebook-f p-2"></i>
+</a>
+{% endif %}
+
+{% if site.data.socials.pinterest_link %}
+<a class="block " href="{{site.data.socials.pinterest_link}}" rel="nofollow" target="_blank" title="Share on Pinterest">
+<i class="text-xl  text-white fab fa-pinterest-p p-2"></i>
+</a>
+{% endif %}
+
+{% if site.data.socials.linkedin_link %}
+
+<a class="block" href="{{site.data.socials.linkedin_link}}" rel="nofollow" target="_blank" title="Share on Linkedin">
+<i class="text-xl text-white fab fa-linkedin  p-2"></i>
+</a>
+{% endif %}
+
+
+</nav>

@@ -1,5 +1,85 @@
 ---
 layout: default
 title: Homepage
+banner_html: ANYTHING <span class="italics">but</span> TRADITIONelle.
+categories:
+  - beauty
+  - travel
+  - wellness
+  - travel
+category_list:
+  - title: recipes
+    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque recusandae consequuntur sit sint numquam rem provident inventore voluptatum modi porro. Alias doloribus dolores tempore amet accusantium neque facere, dicta autem.
+    button_url:
+  - title: recipes
+    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque recusandae consequuntur sit sint numquam rem provident inventore voluptatum modi porro. Alias doloribus dolores tempore amet accusantium neque facere, dicta autem.
+    button_url:
+  - title: recipes
+    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque recusandae consequuntur sit sint numquam rem provident inventore voluptatum modi porro. Alias doloribus dolores tempore amet accusantium neque facere, dicta autem.
+    button_url:
+  - title: recipes
+    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque recusandae consequuntur sit sint numquam rem provident inventore voluptatum modi porro. Alias doloribus dolores tempore amet accusantium neque facere, dicta autem.
+    button_url:
+  - title: recipes
+    description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque recusandae consequuntur sit sint numquam rem provident inventore voluptatum modi porro. Alias doloribus dolores tempore amet accusantium neque facere, dicta autem.
+    button_url:
+seo:
+  title:
+  meta-description:
+  meta-keywords:
+  featured-image_path:
+  hide-from-google: false
 ---
-<h1 class="text-4xl font-bold text-slate-900">Welcome to your homepage!</h1>
+
+
+
+
+{% include banner.html %}
+
+
+
+<!-- intro section -->
+<section class="grid p-24 md:grid-cols-6 editable">
+  <div class="col-span-4 flex justify-center">
+    <h2 class="text-4xl"> LIVING <span class="italics"> our</span> LIVES<span class="italics">to the </span> <br>FULLEST <span class="italics"> so that </span> once is ENOUGH. </h2>
+  </div>
+  <div class="col-span-2">
+    <p> Our mission is to inspire you to have a healthy mind, body and lifestyle. 
+
+      Become the best version of yourself whilst breaking some rules along the way.</p>
+      <h4 class="mt-2 text-2xl">   LIVING  <span class="italics">the </span>NELLE way.</span></h4>
+  </div>
+</section>
+
+<!-- 
+<section class="grid gap-2 min-h-full md:grid-cols-3 border border-black">
+<div class="p2 text-center">
+
+  {% for post in site.posts %}
+      
+  <a href="{{ post.url }}">  
+      <img class="w-full h-max object-cover" src="{{ post.featured_image }}">
+  </a>
+  <h4 class="uppercase text-xs"> {{ post.date | date: '%B %d, %Y' }} </h4>
+  <h4 class="font-thin tracking-widest">{{ post.categories [0] }}</h4>
+  <a href="{{ post.url }}">
+      <h2>{{ post.title }}</h2>
+  </a>
+  <h4>{{ post.author }}</h4>
+{% endfor %}
+</div>
+</section> -->
+
+
+
+{% for loop in page.categories %}
+
+{% include home-blog-sections/blog-loop-{{forloop.index}}.html %}
+
+{% endfor %}
+
+
+{% include subscribe.html %}
+
+
+

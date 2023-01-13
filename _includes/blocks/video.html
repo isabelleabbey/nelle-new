@@ -1,0 +1,90 @@
+
+<!-- video options  -->
+<section class="p-5">
+
+
+  
+    <!--  -->
+  
+    {% if block.video_type == 'youtube' %}
+  
+  <div class="plyr__video-embed relative" class="js-player">
+
+    {% if block.autoplay == true %}
+    <iframe
+    src="https://www.youtube.com/embed/{{block.youtube_id}}?origin=https://plyr.io&amp;muted=1&autoplay=1&amp;loop=1&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+    allowfullscreen
+    allowtransparency
+    allow="autoplay"
+    ></iframe>
+    {% else %}
+    <iframe
+    src="https://www.youtube.com/embed/{{block.youtube_id}}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+    allowfullscreen
+    allowtransparency
+    allow="autoplay"
+    ></iframe>
+    {% endif %}
+  </div>
+  
+  {% elsif block.video_type == 'vimeo' %}
+  <div class="plyr__video-embed relative" class="js-player">
+
+    {% if block.autoplay == true %}
+      <iframe
+        src="https://player.vimeo.com/video/{{block.vimeo_id}}?muted=1&amp;autoplay=1&amp;loop=true&amp;autopause=false&byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+        allowfullscreen
+        allowtransparency
+        allow="autoplay"
+      ></iframe>
+
+
+      {% else %}
+
+
+      <iframe
+      src="https://player.vimeo.com/video/{{block.vimeo_id}}?autopause=false&byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media"
+      allowfullscreen
+      allowtransparency
+      allow="autoplay"
+    ></iframe>
+    {% endif %}
+    </div>
+
+ 
+  
+  
+  {% elsif block.video_type == 'embedded' %}
+  {% if block.autoplay == true %}
+  
+  <video class="js-player" playsinline controls  muted autoplay autobuffer="true" preload="auto" loop data-poster="{{ block.embedded_poster }}">
+    
+    {% for item in block.embedded %}
+    <source src="{{ item.video_path }}" type="video/{{ item.file_type }}" />
+  
+    {% endfor %}
+    <!-- Captions are optional -->
+    <!-- <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default /> -->
+  </video>
+  
+{% else %}
+<video class="js-player" playsinline controls autobuffer="true" preload="auto" loop data-poster="{{ block.embedded_poster }}">
+    
+  {% for item in block.embedded %}
+  <source src="{{ item.video_path }}" type="video/{{ item.file_type }}" />
+
+  {% endfor %}
+  <!-- Captions are optional -->
+  <!-- <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default /> -->
+</video>
+{% endif %}
+
+  {% endif %}
+  
+  </section>
+
+  <!-- so you can play mulitple videos on a page -->
+  <!-- <script defer>
+    const player{{ forloop.index }} = new Plyr('#player{{ forloop.index }}');
+  </script> -->
+

@@ -1,0 +1,30 @@
+<footer class="p-5 grid md:grid-cols-3 bg-black">
+  <div class="">
+    <h2> HELLO </h2>
+    {% include socials-nav.html %}
+    <p class="text-white text-xs"> Copyright Company Name 2022. Website by <a href="https:/klioh.com" class="underline"> Klioh Studio </a> </p>
+  </div>
+
+
+
+  <!-- columns of content that overrun  -->
+
+ 
+
+  <div class="col-span-1 text-white columns-2">
+    {% for item in site.data.navigation.footer  %}
+
+    <a href="#"> {{item.nav_title}} </a>
+
+    {% endfor %}
+  </div>
+
+
+ 
+</footer>
+
+
+
+
+
+

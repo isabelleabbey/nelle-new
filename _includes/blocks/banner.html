@@ -1,0 +1,16 @@
+<section class="bg-center bg-cover flex items-center justify-center min-h-screen" style="background-image:url('{{ block.image }}')">
+
+    <h2> {{ block.title }}</h2>
+
+
+    <h4> {{ page.date | date: '%B %d, %Y' }} </h4>
+    <h4 class="font-thin tracking-widest">{{ post.categories [0] }}</h4>
+    <a href="{{ page.url }}">
+         <h2>{{ page.title }}</h2>
+    </a>
+    <h4>{{ page.author }}</h4>
+
+
+</section>
+  
+  
