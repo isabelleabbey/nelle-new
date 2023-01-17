@@ -2,26 +2,26 @@
 layout: default
 ---
 
-<section class="grid md:grid-cols-3 min-h-screen">
+<section class="grid md:grid-cols-3 grid-cols-1 min-h-screen">
 
 {% include search-blocks.html %}
 
 
 
-  <div class=" grid">
+  <div class="grid grid-cols-1">
   
-    <a href="{{post.url}}" class="border grid grid-cols-6 border-black">
+    <a href="{{post.url}}" class="border grid md:grid-cols-6 border-black">
     </a>
       <!-- <h2 class="col-span-full"> Read more in - {{pageCategory}}</h2> -->
     {% for post in site.categories.wellness limit:3 %}
   
   
-    <a href="{{post.url}}" class="border grid grid-cols-6 border-black">
-        <div class="p2 border border-black col-span-2">
+    <a href="{{post.url}}" class="border grid md:grid-cols-6 grid-cols-1 border-black">
+        <div class="p-2 border border-black md:col-span-2 col-span-full">
         <img class="w-full h-64 object-cover" src="{{post.featured_image}}">
        
         </div>
-        <div class="flex flex-col items-left justify-center col-span-4 p-5">
+        <div class="flex flex-col items-left justify-center md:col-span-4 p-5">
           <h4 class="uppercase"> {{ post.date | date: '%B %d, %Y' }} </h4>
           <h2 class="mt-2 mb-2 text-2xl">{{ post.title }}</h2>
           <p class="mt-2 mb-2"> {{ post.blurb }}</p>
